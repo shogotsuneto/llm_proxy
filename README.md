@@ -3,21 +3,28 @@
 It replaces the Authorization header. That simple.  
 I made this because I am developing a browser extension using llm including ChatGPT, and I don't know how safe it is to store the secret in the browser.  
 
-## build it
+## Build
 
 ```bash
 deno task build
 ```
 
-## run it
-
-Store your api key in the file named `api_key_openai` and run the executable. Don't worry, the secret file is git-ignored 😉.
+then, store your api key in the file named `api_key_openai` and run the executable. Don't worry, the secret file is git-ignored 😉.
 
 ```bash
 cat ./api_key_openai | ./bin/llm_proxy --target https://api.openai.com --sk_stdin --port 18080
 ```
 
-## then test it.
+## Build Container Image
+
+```bash
+sudo docker build -t llm_proxy .
+
+# and run
+cat ./api_key_openai | sudo docker run -i -p 18080:8080 llm_proxy:latest --sk-stdin -b 0.0.0.0
+```
+
+## test 
 
 ```bash
 curl http://localhost:18080/v1/chat/completions \
