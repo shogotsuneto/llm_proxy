@@ -14,7 +14,6 @@ deno task build
 Store your api key in the file named `api_key_openai` and run the executable. Don't worry, the secret file is git-ignored 😉.
 
 ```bash
-echo "sk-your_api_key" > api_key_openai
 cat ./api_key_openai | ./bin/llm_proxy --target https://api.openai.com --sk_stdin --port 18080
 ```
 
