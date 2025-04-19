@@ -1,3 +1,6 @@
+**abandoned** in favor of https://github.com/shogotsuneto/aistream-proxy
+which is a golang implementation of almost the same thing.
+
 # A little proxy (for openai API)
 
 It replaces the Authorization header. That simple.  
